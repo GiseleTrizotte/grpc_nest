@@ -1,0 +1,38 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import { AppModule } from './../src/app.module';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { join } from 'path';
+import { GrpcClientService } from 'src/grpc-client/grpc-client.service';
+
+describe('Grpc Server', () => {
+  let app: INestApplication;
+
+  beforeEach(async () => {
+    const moduleFixture: TestingModule = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    app.connectMicroservice<MicroserviceOptions>({
+      transport: Transport.GRPC,
+      options: {
+        url: '0.0.0.0:5005',
+        package: 'chat_package',
+        protoPath: join(__dirname, 'proto', 'chat.proto'),
+      },
+    });
+    await app.init();
+    await app.startAllMicroservices();
+  });
+
+  test('call chat', async () => {
+    const chatService = app.get<GrpcClientService>(GrpcClientService);
+    try {
+      const result = await chatService.chat({ chatId: 1, message: 'hello' });
+      console.log(result);
+    } catch (e) {
+      console.error(e);
+    }
+  });
+});
