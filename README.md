@@ -22,11 +22,12 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+<h3 align="center">gRPC com NestJS</h3>
+
+
+## :warning: Instalação <a name="install"></a>
 
 ```bash
 $ npm install
@@ -58,16 +59,11 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## :heavy_check_mark: Tecnologias <a name="technologies"></a>
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- [NestJS](https://nestjs.com/)
+- [gRPC](https://grpc.io/)
 
-## Stay in touch
+---
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+by [Gisele Trizotte](https://www.github.com/GiseleTrizotte) ❤️
